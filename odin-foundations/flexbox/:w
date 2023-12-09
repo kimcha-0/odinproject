@@ -38,7 +38,7 @@
     display: flex;
     background-color: #1F2937;
     align-items: center;
-    height: 32rem;
+    height: 30rem;
     justify-content: center;
     flex: 1;
 }
@@ -47,7 +47,6 @@
 .hero-left {
     padding: 2rem;
     border: 1px solid red;
-    margin-left: 5rem;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -67,7 +66,6 @@
 }
 
 .hero-right {
-    margin-right: 5rem;
     padding: 2rem;
     display: flex;
     color: #F9FAF8;
@@ -80,63 +78,25 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 32rem;
-    gap: 2.5rem;
 
 }
 
 .items-header {
-    border: 1px solid blue;
     font-size: 36px;
     color: #1F2937;
     font-weight: bolder;
     display: flex;
     justify-content: center;
-    margin: 5rem;
-    margin-bottom: 0;
 }
 
 .items {
     display: flex;
-    border: 1px solid blue;
     justify-content: center;
-    gap: 1.5rem;
-    margin: 5rem;
-    margin-top: 0;
 }
 
 .item-1, .item-2, .item-3, .item-4 {
-    border-radius: 1rem;
-    width: 8rem;
-    height: 8rem;
+    width: 75px;;
+    height: 75px;
     border: 1px solid blue;
+    margin: 50px;;
 }
-
-.quote-container {
-    display: flex;
-    border: 1px solid red;
-    background-color: #E5E7EB;
-    flex-direction: column;
-    justify-content: center;
-    height: 32rem;
-}
-
-.quote {
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-    margin: 5rem;
-}
-
-.quote > p {
-    font-size: 36px;
-    font-style: italic;
-    color: #1F2937;
-}
-
-.quote-author {
-    align-self: flex-end;
-    margin-right: 5rem;
-
-}
-
