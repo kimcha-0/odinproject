@@ -168,7 +168,11 @@ body {
     margin-top: 0;
 }
 
-.footer-button {
-    color: #3882F6;
+.footer-button > button {
+    background-color: #F9FAF8;
+    border-radius: 0.5rem;
+    border: 0;
+    width: 8rem;
+    height: 2rem;
 }
 
