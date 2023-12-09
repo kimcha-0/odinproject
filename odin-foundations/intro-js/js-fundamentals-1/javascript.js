@@ -5,8 +5,8 @@ message = 'Hello';
 alert(message);
 
 // we can allocate multiple variables on one lien
-let user = 'John', age = 25, speech = 'Hello';
-
+let userOne = 'John', age = 25, messageOne = 'Hello';
+console.log(messageOne)
 // camelCase is preferred in js?
 
 // constants are immutable
