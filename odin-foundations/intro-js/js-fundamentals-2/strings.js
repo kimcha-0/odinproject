@@ -38,3 +38,24 @@ let hello = "Hello";
 let world = "World";
 let helloWorld = hello.concat(" ", world);
 console.log(helloWorld);
+
+let whiteString = "           hello hi            ";
+console.log(whiteString);
+console.log(whiteString.trim());
+
+// trimStart() is supported by ECMA2019 and is supported by all modern browsers by January 2020
+
+console.log("trims whitespace at start of string: " + whiteString.trimStart());
+console.log("trims whitespace at end of string: " + whiteString.trimEnd());
+
+// padStart() and padEnd() allow string padding
+console.log("padStart: " + hello.padStart(hello.length + 4, "0"));
+console.log("padEnd: " + hello.padEnd(hello.length + 4, "0"));
+
+// 3 ways for character access
+console.log("charAt(): " + hello.charAt(3));
+console.log("charCodeAt(): " + hello.charCodeAt(3));
+console.log("hello[3]: " + hello[3]);
+
+// converting a string to an array is similar to python
+console.log(newLine.split(" "));
