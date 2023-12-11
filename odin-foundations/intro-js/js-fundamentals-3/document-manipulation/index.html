@@ -10,21 +10,20 @@
       }
 
       li button {
-        font-size: 8px;
-        margin-left: 20px;
-        color: #666;
+          font-size: 8px;
+          margin-left: 20px;
+          color: #666;
       }
     </style>
-    <script>
-        function onClick() {
-            // do something
-            const list = document.querySelector('ul');
-            const input = document.querySelector('#item');
-            const item = document.createElement('li');
-            item.textContent = input.value;
-            
-            list.append(item);
-        }
+    <script defer>
+        // do something
+        const list = document.querySelector('ul');
+        const input = document.querySelector('div');
+        const item = document.createElement('li');
+        const button = document.querySelector('#add');
+        item.textContent = input.value;
+        button.addEventListener('click', () => list.appendChild(item));
+        input.focus();
     </script>
   </head>
   <body>
@@ -34,7 +33,7 @@
     <div>
       <label for="item">Enter a new item:</label>
       <input type="text" name="item" id="item">
-      <button onclick='onClick()'>Add item</button>
+      <button id='add'>Add item</button>
     </div>
 
     <ul>
