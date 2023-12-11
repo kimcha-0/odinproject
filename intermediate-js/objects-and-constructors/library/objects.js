@@ -12,3 +12,6 @@ function Book(title, author, pages, read) {
 
 const theHobbit = Book('the Hobbit', 'J.R.R. Tolkien', 295, 'read');
 console.log(theHobbit.info());
+
+// prototypes
+
