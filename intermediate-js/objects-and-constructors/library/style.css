@@ -1,0 +1,19 @@
+.books-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.book-shelf {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; 
+}
+
+.book-card {
+    width: 10rem;
+    height: 10rem;
+    background-color: #d9bfbf;
+    border-radius: 0.75rem;
+}

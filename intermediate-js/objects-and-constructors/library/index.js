@@ -1,45 +1,40 @@
 const myLibrary = [];
 
-// Book object constructor
-function Book(title, author, pages, read, progress = 0, dateStarted = 0, dateFinished = 0) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.progress = progress;
-    this.read = read
-
-    // should store date value type;
-    this.dateStarted = dateStarted;
-    this.dateFinished = dateFinished;
-
-    this.info = () => {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+class Book {
+    constructor(title, author, pages, read, dateStarted = 0, dateFinished = 0) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        // read values of progress are "read", "not read", "currently reading"
+        this.read = read
+        // should store date value type;
+        this.dateStarted = dateStarted;
+        this.dateFinished = dateFinished;
+        this.info = () => console.log(`${title}`);
+        // need id attribute
     }
 }
 
-// const theHobbit = Book('the Hobbit', 'J.R.R. Tolkien', 295, 'read');
-// console.log(theHobbit.info());
-const table = document.querySelector('table');
+myLibrary.push(Book('the Idiot', 'Dostoevsky', 613, 'read'));
+myLibrary.push(Book('Crime and Punishment', 'Dostoevsky', 600, 'read'));
 
-function createTableEntry() {
-    const rowEntry = document.createElement('tr');
-    return rowEntry;
-}
+// submit button from form
+const button = document.querySelector('button');
+button.addEventListener("click", (title, author, pages, read) => {
+    const newBookObj = new Book(title, author, pages, read);
+    myLibrary.push(newBookObj);
+    console.log(`book ${newBookObj} added`);
+});
 
-function addBook(title, author, pages, read) {
-    const newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-}
 
 // remove book function
-
+// builder pattern would be suitable for this problem?
 function displayBooks() {
     // add books to HTML Display in their own Card
+    // const booksContainer  = document.querySelector('.book-shelf');
     for (let i = 0; i < myLibrary.length; i++) {
-        
-        
+        console.log(typeof myLibrary[i]);
     }
 }
 
-const button = document.selectQuery("#addbook");
-// eventlistener to add book to book array
+displayBooks();
