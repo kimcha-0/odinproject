@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Basic Form Controls</title>
+    </head>
+    <body>
+        <form action="" action="post">
+            <ul>
+                <li>
+                    <label for="comment">Comment: </label>
+                    <input type="text" id="comment" name="comment" value="I'm a text field" />
+                </li>
+                <li>
+                    <label for="pwd">Password: </label>
+                    <input type="password" id="pwd" name="pwd" />
+                </li>
+                <li>
+                    <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
+                </li>
+            </ul>
+            <fieldset>
+                <legend>Choose vegetables</legend>
+                <ul>
+                    <li><label for="carrots">Carrots</label>
+                        <input type="checkbox"
+                        id="carrots"
+                        name-"vegetable"
+                        value="carrots"
+                        checked />
+                    </li>
+                    <li>
+                        <label for="peas">Peas</label>
+                        <input type="checkbox" id="peas" name="vegetable" value="peas" />
+                    </li>
+                    <li>
+                        <label for="cabbage">Cabbage</label>
+                        <input type="checkbox" id="cabbage" name="vegetable" value="cabbage" />
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>What is your favorite meal?</legend>
+                <ul>
+                    <li>
+                        <label for="soup">Soup</label>
+                        <input type="radio" id="soup" name="meal" value="soup" checked />
+                    </li>
+                    <li>
+                        <label for="curry">Curry</label>
+                        <input type="radio" id="curry" name="meal" value="curry" />
+                    </li>
+                    <li
+                        ><label for="pizza">Pizza</label>
+                        <input type="radio" id="pizza" name="meal" value="pizza" />
+                    </li>
+                </ul>
+                </fieldset>
+                <fieldset>
+                    <input type="file" name="file" id="file" accept="image/*" multiple />
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                    <button type="button">This is an <strong>anonymous button</strong></button>
+                </fieldset>
+        </form>
+    </body>
+</html>
