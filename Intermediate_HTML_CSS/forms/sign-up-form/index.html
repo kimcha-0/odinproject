@@ -7,6 +7,57 @@
         <title>Sign Up</title>
     </head>
     <body>
+        <div class="left-container">
+            <div class="sidebar-image">
+                <div class="logo-container">
+                    <img src="odin-logo.png" alt="">
+                    David
+                </div>
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="intro-text-container">
+                This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.
+                Sign up now to get started.
 
+                You know you want to.
+            </div>
+            <div class="sign-up-form-container">
+                <form action="" method="post">
+                    <h1>Let's do this!</h1>
+                    <div class="form-row">
+                        <div class="input-container">
+                            <label for="first-name">FIRST NAME</label>
+                            <input type="text" id="first-name" name="first_name" required placeholder="John" />
+                        </div>
+                        <div class="input-container">
+                            <label for="last-name">LAST NAME</label>
+                            <input type="text" id="last-name" name="last_name" required placeholder="Doe" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-container">
+                            <label for="email">EMAIL</label>
+                            <input type="text" id="first-name" name="first_name" required placeholder="johndoe@gmail.com" />
+                        </div>
+                        <div class="input-container">
+                            <label for="phone">PHONE NUMBER</label>
+                            <input type="tel" id="phone" name="phone_number" required placeholder="xxx-xxx-xxxx" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-container">
+                            <label for="pwd">PASSWORD</label>
+                            <input type="password" id="pwd" name="password" required class="error"/>
+                        </div>
+                        <div class="input-container">
+                            <label for="confirm-pwd">CONFIRM PASSWORD</label>
+                            <input type="password" id="confirm-pwd" name="confirm_password" required class="error" />
+                        </div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
