@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Other Form Controls</title>
+    </head>
+    <body>
+        <form action="">
+            <textarea name="" id="" cols="30" rows="8"></textarea>
+            <select name="groups" id="groups" multiple size="2">
+                <optgroup label="fruits">
+                    <option value="banana">Banana</option>
+                    <option value="cherry" selected>Cherry</option>
+                    <option value="lemon">Lemon</option>
+                </optgroup>
+                <optgroup label="vegetables">
+                    <option value="carrot">Carrot</option>
+                    <option value="eggplant" selected>Eggplant</option>
+                    <option value="lemon">Potato</option>
+                </optgroup>
+            </select>
+            <label for="myFruit">What's your favorite fruit?</label>
+            <input type="text" name="myFruit" id="myFruit" list="mySuggestion" />
+            <datalist id="mySuggestion">
+                <option value="apple">Apple</option>
+                <option value="banana">Banana</option>
+                <option value="">Blackberry</option>
+                <option value="">Blueberry</option>
+                <option value="">Lemon</option>
+                <option value="">Lychee</option>
+                <option value="">Peach</option>
+                <option value="">Pear</option>
+            </datalist>
+            <meter min = "0"  max="100" value="25" low="33" high="66" optimum="0">75</meter>
+            <progress value="75" max="100"></progress>
+        </form>
+        <form>
+            <ul>
+                <li>
+                    <label for="food">Pick your favorite food:</label>
+                    <select name="food" id="food">
+                        <optgroup label="entree">
+                            <option value="salad">Salad</option>
+                            <option value="curry">Curry</option>
+                            <option value="pizza">Pizza</option>
+                            <option value="fajitas">Fajitas</option>
+                        </optgroup>
+                        <optgroup label="snacks">
+                            <option value="Biscuits">Biscuits</option>
+                            <option value="Crisps">Crisps</option>
+                            <option value="Fruit">Fruit</option>
+                            <option value="Breadsticks">Breadsticks</option>
+                        </optgroup>
+                    </select>
+                </li>
+                <li>
+                    <button>Submit choice</button>
+                </li>
+            </ul>
+        </form>
+        <form>
+            <ul>
+                <li>
+                    <label for="food">Pick your favorite food:</label>
+                    <input type="text" id="food" name="food" list="foodSuggestion" />
+                    <datalist id="foodSuggestion">
+                        <option value="salad">Salad</option>
+                        <option value="curry">Curry</option>
+                        <option value="pizza">Pizza</option>
+                        <option value="fajitas">Fajitas</option>
+                        <option value="Biscuits">Biscuits</option>
+                        <option value="Crisps">Crisps</option>
+                        <option value="Fruit">Fruit</option>
+                        <option value="Breadsticks">Breadsticks</option>
+                        <datalist>
+                </li>
+                <li>
+                    <button>Submit choice</button>
+                </li>
+            </ul>
+        </form>
+    </body>
+</html>
