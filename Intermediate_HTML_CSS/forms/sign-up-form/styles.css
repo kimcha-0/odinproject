@@ -56,7 +56,6 @@ body {
 }
 
 .intro-text-container {
-    height: 33%;
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -73,7 +72,6 @@ body {
     display: flex;
     padding: 25px;
     border: 1px;
-    height: 33%;
 }
 
 .form-row {
@@ -83,16 +81,14 @@ body {
 .input-container {
     margin-top: 10px;
     margin-bottom: 10px;
-
+    gap: 5px;
     display: flex;
     flex-direction: column;
 }
 
 .input-container > input {
-    margin-right: 50px;
     border: 1px solid #E5E7EB;
-    height: 30px;
-    width: 250px;
+    width: 100%;
     padding: 5px;
     border-radius: 5px;
 }
@@ -100,10 +96,6 @@ body {
 .input-container > input:focus {
     border: 1px solid blue;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-
-.input-container > .error:invalid {
-    border: 1px solid red;
 }
 
 .sign-up-form-container h1 {
@@ -127,9 +119,13 @@ button {
 
 }
 
-.bottom-container {
-    height: 33%;
+.submit-container {
+    width: 100%;
     display: flex;
     align-items: center;
     font-size: 18px;
+}
+
+.submit-container > p {
+    margin-left: 20px;
 }
