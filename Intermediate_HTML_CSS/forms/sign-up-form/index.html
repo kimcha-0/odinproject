@@ -17,13 +17,13 @@
         </div>
         <div class="right-container">
             <div class="intro-text-container">
-                This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.
-                Sign up now to get started.
+                <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.
+                Sign up now to get started.</p>
 
-                You know you want to.
+                <p>You know you want to.</p>
             </div>
             <div class="sign-up-form-container">
-                <form action="" method="post">
+                <form action="" method="post" id="create-acc">
                     <h1>Let's do this!</h1>
                     <div class="form-row">
                         <div class="input-container">
@@ -54,9 +54,16 @@
                             <label for="confirm-pwd">CONFIRM PASSWORD</label>
                             <input type="password" id="confirm-pwd" name="confirm_password" required class="error" />
                         </div>
-                        <button type="submit">Submit</button>
+                        <script>
+                            const pwd = querySelector('#pwd');
+                            const pwd_confirm = querySelector('#confirm-pwd');
+                        </script>
                     </div>
+                    <button type="submit" for="create-acc">Create Account</button>
                 </form>
+            </div>
+            <div class="bottom-container">
+                <p>Already have an Account? <a href="">login</a></p>
             </div>
         </div>
     </body>
