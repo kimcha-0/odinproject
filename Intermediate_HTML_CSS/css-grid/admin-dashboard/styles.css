@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.header {
+    
+}
+
+.sidebar {
+    background-color: lightblue;
+}
+
+.main-content {
+    background-color: beige;
+}
