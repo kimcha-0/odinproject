@@ -3,21 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
         <title>First Grid</title>
     </head>
     <body>
         <div class="container">
-            <div class="item first-row">A</div>
-            <div class="item first-row">B</div>
-            <div class="item first-row last-column">C</div>
-            <div class="item">D</div>
-            <div class="item">E</div>
-            <div class="item last-column">F</div>
-            <div class="item">G</div>
-            <div class="item">H</div>
-            <div class="item last-column">I</div>
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
         </div>
+        <style>
+            .container {
+                display: grid;
+                grid-gap: 20px;
+                grid-template-columns: 200px 400px;
+            }
+        </style>
 
 </body>
 </html>
