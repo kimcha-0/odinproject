@@ -71,13 +71,50 @@ form > #search-bar {
     grid-row: 1 / span 2;
     border: 1px solid red;
     height: 100%;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.branding {
+    grid-row: 1;
+}
+
+.nav {
+    grid-row: 2;
 }
 
 .main-content {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    background-color: beige;
-    border: 1px solid red;
+}
+
+ul {
+    list-style: none;
     grid-column: 2;
     grid-row: 2;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+    height: 150px;
+    padding: 10px;
+}
+
+.content-side {
+    display: grid;
+    grid-teamplate-rows: repeat(2, 1fr);
+}
+
+.announcements {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.trending {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template: columns: 1fr;
 }
