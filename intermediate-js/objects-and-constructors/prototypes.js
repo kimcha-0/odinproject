@@ -26,10 +26,14 @@ Hero.prototype.greet = function () {
     return `${this.name} says hello.`;
 }
 
-Warrior.prototype.attack = () => `${this.name} attacks with the ${this.weapon}.`;
+Warrior.prototype.attack = function () {
+    return `${this.name} attacks with the ${this.weapon}.`;
+}
 
 
-Healer.prototype.heal = () => `${this.name} casts ${this.spell}.`;
+Healer.prototype.heal = function () {
+    return `${this.name} casts ${this.spell}.`;
+}
 
 
 // Initialize individual character instances
@@ -38,3 +42,4 @@ const hero2 = new Healer('Kanin', 1, 'cure');
 
 console.log(hero1.greet());
 console.log(hero1.attack());
+console.log(hero2.heal());
