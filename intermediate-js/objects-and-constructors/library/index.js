@@ -28,18 +28,24 @@ const submitButton = document.querySelector("button#add-book");
 
 addBookButton.addEventListener("click", () => dialog.showModal());
 
-submitButton.addEventListener("click", () => {
-    dialog.closeModal();
-    event.preventDefault();
-});
 
-function addBook() {
 
-    const newBookObj = new Book(title, author, pages, read);
-    myLibrary.push(newBookObj);
+function addBook(book) {
+    myLibrary.push(book);
     console.log(`book ${newBookObj} added`);
 }
 
+submitButton.addEventListener("click", () => {
+    const title = document.querySelector('#title-input').value;
+    const author = document.querySelector("#author-input").value;
+    const book = new Book(title, author, 0, 'no');
+    addBook(book);
+});
+
+function createBookElement() {
+    const bookElement = document.createElement('div');
+    return bookElement;
+}
 
 
 // remove book function
@@ -48,17 +54,7 @@ function displayBooks() {
     // add books to HTML Display in their own Card
     const booksContainer  = document.querySelector('.book-shelf');
     for (let i = 0; i < myLibrary.length; i++) {
-        const bookElement = document.createElement('div');
-        bookElement.className = 'book-card';
-        bookElement.id = i;
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Remove Book';
-        deleteButton.addEventListener("click", () => {
-            console.log('remove');
-            delete myLibrary[i];
-        });
-        bookElement.appendChild(deleteButton);
-        booksContainer.appendChild(bookElement);
+        createBookElement();
     }
     console.log(myLibrary);
 }
