@@ -14,12 +14,24 @@
         </div>
 
         <div class="books-container">
-            <div class="add-book">
-                <form action="post">
-
-                </form>
-                <button id='add-book'>Add Book</button>
-            </div>
+            <dialog id="add-book-dialog">
+                <div class="add-book">
+                    <fieldset>
+                        <form action="" method="post" id="add">
+                            <label for="title-input">Title: </label>
+                            <input type="text" name="title" id='title-input'>
+                            <label for="author-input">Author: </label>
+                            <input type="text" name="author" id='author-input'>
+                            <label for="pages-input">Pages: </label>
+                            <input type="text" name="pages" value="" id='pages-input'>
+                            <label for="read-status">Read</label>
+                            <input type="checkbox" name="read" id='read-status'>
+                        </form>
+                        <button type='submit' form='add' id='add-book' value='submit'>Add Book</button>
+                    </fieldset>
+                </div>
+            </dialog>
+            <button>Add Book</button>
             <h3>Shelf</h3>
             <div class="book-shelf">
             </div>
