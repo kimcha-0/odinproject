@@ -60,6 +60,10 @@ body {
     font-size: 14px;
 }
 
+.form-row input[type='email']::placeholder {
+    color: red;
+}
+
 .form-row label {
     margin-bottom: 15px;
 }
