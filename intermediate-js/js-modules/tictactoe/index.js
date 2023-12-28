@@ -10,6 +10,7 @@ const GameBoard = (() => {
     }
 
     const getBoard = () => board;
+
     const checkWinCondition = (player) => {
         for (i = 0; i < board.length; i++) {
             if (board[i][0] === player && board[i][1] === player && board[i][2] === player) {
@@ -28,41 +29,42 @@ const GameBoard = (() => {
         return false;
     };
 
+    const changeBoardState = (player) => {
+        const gridCells = document.querySelectorAll('.grid-cell');
+
+        for (i = 0; i < gridCells.length; i++) {
+            gridCells[i].addEventListener('click', () => {
+                player.playMove();
+            });
+        }
+
+    };
+
+
+    const displayBoard = () => {
+        count = 0;
+        for (i = 0; i < board.length; i++) {
+            for ( j = 0; j < board[i].length; j++) {
+                if (board[i][j] === 1) {
+                    gridCells[count].textContent = 'X';
+                } else if (board[i][j] === 2) {
+                    gridCells[count].textContent = 'O';
+                } 
+                count += 1;
+            }
+        };
+    }
+
     return {
+        displayBoard,
         getBoard,
         checkWinCondition,
     }
 
 })();
 
-const Display = ((grid) => {
 
-    // const boardEl = document.getElementById('board');
 
-    const displayGrid = () => {
-        for (i = 0; i < grid.length; i++) {
-            // const rowEl = document.createElement('div');
-            rowEl.className = 'board-row';
-            for ( j = 0; j < grid[i].length; j++) {
-                // const cellEl = document.createElement('div');
-                cellEl.className = 'board-cell';
-                if (grid[i][j] === 1) {
-                    cellEl.id = 'X';
-                } else if (grid[i][j] === 2) {
-                    cellEl.id = 'O';
-                } else {
-                    cellEl.id = 'blank';
-                }
-            }
-            boardEl.appendChild(rowEl);
-        }
-    };
-
-    return {
-        displayGrid,
-    };
-
-})();
 
 const Player = (type, grid) => {
 
@@ -71,6 +73,8 @@ const Player = (type, grid) => {
     const playMove = (x, y) => {
         grid[x][y] = type;
     }
+
+
 
     return {
         getType,
@@ -83,6 +87,7 @@ const PlayGame  = () => {
     let turn = true;
     const playerOne = Player(1);
     const playerTwo = Player(2);
+
     while (true) {
         if (turn) {
             playerOne.playMove(x, y);
@@ -105,9 +110,7 @@ const PlayGame  = () => {
             console.log("tie");
             break;
         }
-        // Display(board).displayGrid();
     }
-
 };
 
 const body = document.querySelector('body');
@@ -118,6 +121,7 @@ console.log(grid.getBoard());
 const playGameBtn = document.createElement('button');
 playGameBtn.className = 'play-game';
 playGameBtn.id = 'start-btn';
-playGameBtn.addEventListener('click', () => {
-    Display.displayBoard();
-});
+
+
+    
+grid.displayBoard();
