@@ -29,19 +29,22 @@ const GameBoard = (() => {
         return false;
     };
 
-    const changeBoardState = (player) => {
-        const gridCells = document.querySelectorAll('.grid-cell');
+    const changeBoardState = (x, y, newValue) => {
+        grid[x][y] = newValue;
+    }
 
-        for (i = 0; i < gridCells.length; i++) {
-            gridCells[i].addEventListener('click', () => {
-                player.playMove();
-            });
-        }
+    return {
+        getBoard,
+        checkWinCondition,
+        changeBoardState,
+    }
 
-    };
+})();
 
-
-    const displayBoard = () => {
+const DisplayBoard= (() => {
+    const gridCells = document.querySelectorAll('grid-cell');
+    const board = 
+    const display = () => {
         count = 0;
         for (i = 0; i < board.length; i++) {
             for ( j = 0; j < board[i].length; j++) {
@@ -49,79 +52,66 @@ const GameBoard = (() => {
                     gridCells[count].textContent = 'X';
                 } else if (board[i][j] === 2) {
                     gridCells[count].textContent = 'O';
-                } 
+                }
+                gridCells[count].addEventListener('click', () => {
+                    // call display controller method and send coordinate data
+                    DisplayBoardController.changeBoardController(i, j, player);
+                });
                 count += 1;
             }
-        };
+        }
+    };
+
+    const clearDisplay = () => {
+        for (i = 0; i < gridCells.length; i++) {
+            gridCells[i].textContent = '';
+        }
     }
 
     return {
-        displayBoard,
-        getBoard,
-        checkWinCondition,
+        display,
+        clearDisplay,
     }
 
 })();
 
+const Player = (type) => {
+    const getPlayerType = () => type;
 
-
-
-const Player = (type, grid) => {
-
-    const getType = () => type;
-    
     const playMove = (x, y) => {
-        grid[x][y] = type;
+        DisplayBoardController.changeBoardController(x, y, type);
     }
-
-
 
     return {
-        getType,
+        getPlayerType,
         playMove,
-    };
-};
-
-const PlayGame  = () => {
-    let moves = 0;
-    let turn = true;
-    const playerOne = Player(1);
-    const playerTwo = Player(2);
-
-    while (true) {
-        if (turn) {
-            playerOne.playMove(x, y);
-            if (GameBoard.checkWinCondition(playerOne.getType())) {
-                console.log("player one wins");
-                break;
-            }
-            turn = !turn;
-        } else {
-            playerTwo.playMove(x, y);
-            if (GameBoard.checkWinCondition(playerTwo.getType())) {
-                console.log("player two wins");
-                break;
-            }
-            turn = !turn;
-        }
-
-        moves++;
-        if (moves === 9) {
-            console.log("tie");
-            break;
-        }
     }
 };
+
+const DisplayBoardController = (() => {
+    const changeBoardController = (x, y, player) => {
+        GameBoard.changeBoardState(x, y, player);
+
+    }
+
+    const renderDisplay = () => {
+        Display.clearDisplay();
+        Display.display();
+    }
+
+    return {
+        changeBoardController,
+        renderDisplay,
+    }
+
+})();
+
+const xPlayer = Player('X');
+const yPlayer = Player('Y');
+let turn = true;
+
+turn = false;
 
 const body = document.querySelector('body');
 const playGameCtrl = document.querySelector('game-controls');
 const grid = GameBoard;
-console.log(grid.getBoard());
-
-const playGameBtn = document.createElement('button');
-playGameBtn.className = 'play-game';
-playGameBtn.id = 'start-btn';
-
-
-    
-grid.displayBoard();
