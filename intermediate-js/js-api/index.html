@@ -21,6 +21,18 @@
             const showSearchImgBtn = document.querySelector('#show-img');
             let searchIndex = 0;
 
+            const getCats = async () => {
+                const response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=mJCvsLbl9btr96aD1o1qqZOZ10AAoplN&s=cats', {mode: 'cors'});
+                const catData = await response.json();
+                img.src = catData.data.images.original.url;
+            }
+
+            const searchImages = async (query) => {
+                const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=mJCvsLbl9btr96aD1o1qqZOZ10AAoplN&q=${searchValue}`, {mode: 'cors'});
+                const queryResult = await response.json();
+                return queryResult;
+            }
+
             searchBtn.addEventListener('click', (e) => {
                 const searchInput = document.querySelector('input');
                 const searchValue = searchInput.value;
@@ -38,14 +50,9 @@
                     });
             });
 
-            btn.addEventListener('click', () => {
 
-                fetch('https://api.giphy.com/v1/gifs/translate?api_key=mJCvsLbl9btr96aD1o1qqZOZ10AAoplN&s=cats', {mode: 'cors'})
-                    .then((response) => response.json())
-                    .then(function(response) {
-                        console.log(response.data.images.original.url);
-                        img.src = response.data.images.original.url;
-                    });
+            btn.addEventListener('click', () => {
+                getCats().catch((err) => console.log(erro));
             });
 
             showSearchImgBtn.addEventListener('click', () => {
