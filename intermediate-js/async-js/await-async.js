@@ -27,6 +27,7 @@ const loadJson = async (url) => {
 async function demoGithubUser() {
 
   let user;
+
   while(true) {
     let name = prompt("Enter a name?", "iliakan");
 
@@ -34,7 +35,7 @@ async function demoGithubUser() {
       user = await loadJson(`https://api.github.com/users/${name}`);
       break; // no error, exit loop
     } catch(err) {
-      if (err instanceof HttpError && err.response.status == 404) {
+      if (err instanceof HttpError && err.response.status === 404) {
         // loop continues after the alert
         alert("No such user, please reenter.");
       } else {
