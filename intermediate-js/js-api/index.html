@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <img src="#" alt="">
+        <button>See Cats!</button>
+        <form action="">
+            <input type="search" id='img-search'>
+            <button type='submit' id='search-btn'>Search!</button>
+        </form>
+        <button id='show-img'>Show Image</button>
+        <script>
+            const img = document.querySelector('img');
+            const btn = document.querySelector('button');
+            const searchBtn = document.querySelector('#search-btn');
+            let searchCache = new Array();
+            const showSearchImgBtn = document.querySelector('#show-img');
+            let searchIndex = 0;
+
+            searchBtn.addEventListener('click', (e) => {
+                const searchInput = document.querySelector('input');
+                const searchValue = searchInput.value;
+                console.log(searchValue);
+                e.preventDefault();
+
+                fetch(`https://api.giphy.com/v1/gifs/search?api_key=mJCvsLbl9btr96aD1o1qqZOZ10AAoplN&q=${searchValue}`, {mode: 'cors'})
+                    .catch((err) => {
+                        console.log(err);
+                    })
+                    .then((response) => response.json())
+                    .then(function(response) {
+                        searchCache = response.data
+                        searchIndex = 0;
+                    });
+            });
+
+            btn.addEventListener('click', () => {
+
+                fetch('https://api.giphy.com/v1/gifs/translate?api_key=mJCvsLbl9btr96aD1o1qqZOZ10AAoplN&s=cats', {mode: 'cors'})
+                    .then((response) => response.json())
+                    .then(function(response) {
+                        console.log(response.data.images.original.url);
+                        img.src = response.data.images.original.url;
+                    });
+            });
+
+            showSearchImgBtn.addEventListener('click', () => {
+                img.src = searchCache[searchIndex++].images.original.url;
+            });
+        </script>
+
+</body>
+</html>
