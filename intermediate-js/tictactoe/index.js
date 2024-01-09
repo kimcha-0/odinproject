@@ -4,11 +4,10 @@ const GameBoard = (() => {
     for (i = 0; i < 3; i++) {
         const row = [];
         for (j = 0; j < 3; j++) {
-            row.push('');
+            row.push('O');
         }
         board.push(row);
     }
-
 
     const getBoard = () => board;
 
@@ -38,7 +37,7 @@ const GameBoard = (() => {
 
     const renderDisplay = () => {
         Display.clearDisplay();
-        Display.display();
+        Display.display(board);
     }
 
     return {
@@ -54,11 +53,12 @@ const GameBoard = (() => {
 const Display = (() => {
     const boardEl = document.querySelectorAll('.board-cell');
 
-    const renderDisplay = (board) => {
+    const display = (board) => {
         let count = 0;
         for (i = 0; i < board.length; i++) {
             for ( j = 0; j < board[i].length; j++) {
-                boardEl[count].textContent = board[i][j];          
+                console.log(board[i][j]);
+                boardEl[count].textContent = board[i][j];
                 count++;
             }
         }
@@ -72,7 +72,7 @@ const Display = (() => {
 
 
     return {
-        renderDisplay,
+        display,
         clearDisplay,
     }
 })();
@@ -82,7 +82,6 @@ const Game = () => {
     let turn = true;
     const inputValidation = (x, y) => x >= 0 && x < 3 && y >= 0 && y < 3 && GameBoard.cellIsEmpty(x, y);
     while (true) {
-
         if (turn) {
             // X's turn
             let xXMove = prompt("X move: Enter an X Coordinate: ") - 1;
@@ -127,5 +126,4 @@ const Game = () => {
         }
     }
 };
-
-Game();
+GameBoard.renderDisplay();

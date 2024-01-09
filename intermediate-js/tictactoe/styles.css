@@ -4,8 +4,15 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+}
+
 .board {
     display: grid;
+    height: 500px;
+    width: 500px;
     gap: 10px;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
@@ -13,7 +20,10 @@
 }
 
 .board-cell {
-    height: 150px;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    font-size: 10em;
+    justify-content: center;
     background-color: #d4d4d4;
 }
-
