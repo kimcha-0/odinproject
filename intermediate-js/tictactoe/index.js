@@ -4,7 +4,7 @@ const GameBoard = (() => {
     for (i = 0; i < 3; i++) {
         const row = [];
         for (j = 0; j < 3; j++) {
-            row.push('O');
+            row.push('');
         }
         board.push(row);
     }
@@ -52,13 +52,20 @@ const GameBoard = (() => {
 
 const Display = (() => {
     const boardEl = document.querySelectorAll('.board-cell');
+    const cache = new Array();
 
     const display = (board) => {
         let count = 0;
         for (i = 0; i < board.length; i++) {
             for ( j = 0; j < board[i].length; j++) {
-                console.log(board[i][j]);
+                console.log('model contents:', board[i][j]);
                 boardEl[count].textContent = board[i][j];
+                boardEl[count].id = `${i}-${j}`;
+                const test = document.getElementById(`${i}-${j}`);
+                boardEl[count].addEventListener('click', () => {
+                    const ids = test.id.split('-').map(x => parseInt(x));
+                    console.log();
+                })
                 count++;
             }
         }
@@ -74,6 +81,11 @@ const Display = (() => {
     return {
         display,
         clearDisplay,
+    }
+})();
+
+const GameController = (() => {
+    return {
     }
 })();
 
@@ -93,7 +105,6 @@ const Game = () => {
                 console.log(inputValidation(xXMove, yXMove));
             }
             GameBoard.changeBoardState(xXMove, yXMove, 'X');
-            Display.renderDisplay(GameBoard.getBoard());
 
             if (GameBoard.checkWinCondition('X') === true) {
                 alert('X wins!');
@@ -110,7 +121,7 @@ const Game = () => {
                 console.log(inputValidation(xOMove, yOMove));
             }
             GameBoard.changeBoardState(xOMove, yOMove, 'O');
-            Display.renderDisplay(GameBoard.getBoard());
+            Display.display(GameBoard.getBoard());
 
             if (GameBoard.checkWinCondition('O') === true) {
                 alert('O wins!');
@@ -126,4 +137,4 @@ const Game = () => {
         }
     }
 };
-GameBoard.renderDisplay();
+Display.display(GameBoard.getBoard());
