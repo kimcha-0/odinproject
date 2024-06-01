@@ -1,3 +1,5 @@
+let turn = true;
+
 const GameBoard = (() => {
 
     const board = [];
@@ -51,24 +53,38 @@ const GameBoard = (() => {
 })();
 
 const Display = (() => {
+    // array of grid cell divs
     const boardEl = document.querySelectorAll('.board-cell');
-    const cache = new Array();
 
     const display = (board) => {
         let count = 0;
         for (i = 0; i < board.length; i++) {
             for ( j = 0; j < board[i].length; j++) {
-                console.log('model contents:', board[i][j]);
                 boardEl[count].textContent = board[i][j];
-                boardEl[count].id = `${i}-${j}`;
-                const test = document.getElementById(`${i}-${j}`);
-                boardEl[count].addEventListener('click', () => {
-                    const ids = test.id.split('-').map(x => parseInt(x));
-                    console.log();
-                })
                 count++;
             }
         }
+    }
+    const displayListen = (board) => {
+        let count = 0;
+        for (i = 0; i < board.length; i++) {
+            for (j= 0; j < board[0].length; j++) {
+                boardEl[count].addEventListener('click', () => {
+                    const test = document.getElementById(`${i}-${j}`);
+                    const ids = test.id.split('-').map(x => parseInt(x));
+                    turn === true ? board[ids[0]][ids[1]] = 'X' : board[ids[0]][ids[1]] = 'Y';
+                    if (turn)
+                        console.log('X');
+                    else
+                        console.log('Y');
+                    console.log(ids);
+                    count++;
+                    Controller.updateState();
+                })
+
+            }
+        }
+
     }
 
     const clearDisplay = () => {
@@ -81,60 +97,35 @@ const Display = (() => {
     return {
         display,
         clearDisplay,
+        displayListen,
     }
 })();
 
-const GameController = (() => {
+
+const Controller = (() => {
+    const updateState = () => {
+        switchTurn();
+    }
+
+    const switchTurn = () => turn = !turn;
+
     return {
+        updateState,
+        switchTurn,
     }
 })();
 
-const Game = () => {
-    let numMoves = 0;
-    let turn = true;
-    const inputValidation = (x, y) => x >= 0 && x < 3 && y >= 0 && y < 3 && GameBoard.cellIsEmpty(x, y);
-    while (true) {
-        if (turn) {
-            // X's turn
-            let xXMove = prompt("X move: Enter an X Coordinate: ") - 1;
-            let yXMove = prompt("X move: Enter an Y Coordinate: ") - 1;
-            console.log(inputValidation(xXMove, yXMove));
-            while (!inputValidation(xXMove, yXMove)) {
-                xXMove = prompt("X move: Enter an X Coordinate: ") - 1;
-                yXMove = prompt("X move: Enter an Y Coordinate: ") - 1;
-                console.log(inputValidation(xXMove, yXMove));
-            }
-            GameBoard.changeBoardState(xXMove, yXMove, 'X');
 
-            if (GameBoard.checkWinCondition('X') === true) {
-                alert('X wins!');
-                break;
-            }
-            turn = false;
-        } else {
-            let xOMove = prompt("O move: Enter an X Coordinate: ") - 1;
-            let yOMove = prompt("O move: Enter an Y Coordinate: ") - 1;
-            console.log(inputValidation(xOMove, yOMove));
-            while (!inputValidation(xOMove, yOMove)) {
-                xOMove = prompt("O move: Enter an X Coordinate: ") - 1;
-                yOMove = prompt("O move: Enter an Y Coordinate: ") - 1;
-                console.log(inputValidation(xOMove, yOMove));
-            }
-            GameBoard.changeBoardState(xOMove, yOMove, 'O');
-            Display.display(GameBoard.getBoard());
-
-            if (GameBoard.checkWinCondition('O') === true) {
-                alert('O wins!');
-                break;
-            }
-            // O's turn
-            turn = true;
-        }
-        numMoves++;
-        if (numMoves === 9) {
-            alert('tie!');
-            break;
-        }
+const Game = (() => {
+    const startGame = () => {
+        Display.displayListen(GameBoard.getBoard());
+        GameBoard.renderDisplay();
     }
-};
-Display.display(GameBoard.getBoard());
+
+    return {
+        startGame,
+    }
+})();
+
+
+Game.startGame();
