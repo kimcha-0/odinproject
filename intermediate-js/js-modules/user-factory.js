@@ -8,7 +8,15 @@ function createUser (name) {
     return { name, discordName, getReputation, giveReputation }
 }
 
-const josh = createuser("josh");
+const createPlayer = (name, level) => {
+    const { getReputation, giveReputation } = createUser(name);
+
+    const increaseLevel = () => level++;
+    return { name, getReputation, giveReputation, increaseLevel };
+};
+
+const josh = createUser("josh");
+const playerJosh = createPlayer("josh", 1);
 josh.giveReputation();
 josh.giveReputation();
 
