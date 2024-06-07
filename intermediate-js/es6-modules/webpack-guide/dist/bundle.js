@@ -42,6 +42,16 @@ eval("\n\nmodule.exports = function (i) {\n  return i[1];\n};\n\n//# sourceURL=w
 
 /***/ }),
 
+/***/ "./src/data.csv":
+/*!**********************!*\
+  !*** ./src/data.csv ***!
+  \**********************/
+/***/ ((module) => {
+
+eval("module.exports = [[\"to\",\"from\",\"heading\",\"body\"],[\"Mary\",\"John\",\"Reminder\",\"Call Cindy on Tuesday\"],[\"Zoe\",\"Bill\",\"Reminder\",\"Buy orange juice\"],[\"Autumn\",\"Lindsey\",\"Letter\",\"I miss you\"],[\"\"]]\n\n//# sourceURL=webpack://webpack-guide/./src/data.csv?");
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -129,6 +139,16 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/data.xml":
+/*!**********************!*\
+  !*** ./src/data.xml ***!
+  \**********************/
+/***/ ((module) => {
+
+eval("module.exports = {\"note\":{\"to\":[\"Mary\"],\"from\":[\"John\"],\"heading\":[\"Reminder\"],\"body\":[\"Call Cindy on Tuesday\"]}}\n\n//# sourceURL=webpack://webpack-guide/./src/data.xml?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -136,7 +156,51 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\nconst component = () => {\n\tconst element = document.createElement('div');\n\n\t// Lodas, now imported by this script\n\telement.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default().join(['Hello', 'webpack'], ' ');\n\telement.classList.add('hello');\n\n\treturn element;\n}\n\ndocument.body.appendChild(component());\nconsole.log('hello from src/index.js');\n\n\n//# sourceURL=webpack://webpack-guide/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _luffy_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./luffy.jpg */ \"./src/luffy.jpg\");\n/* harmony import */ var _data_csv__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data.csv */ \"./src/data.csv\");\n/* harmony import */ var _data_csv__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_data_csv__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _data_xml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data.xml */ \"./src/data.xml\");\n/* harmony import */ var _data_xml__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_data_xml__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _data_toml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data.toml */ \"./src/data.toml\");\n/* harmony import */ var _data_yaml__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./data.yaml */ \"./src/data.yaml\");\n/* harmony import */ var _data_json5__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./data.json5 */ \"./src/data.json5\");\n\n\n\n\n\n\n\n\n\nconst component = () => {\n\tconst element = document.createElement('div');\n\n\t// Lodas, now imported by this script\n\telement.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default().join(['Hello', 'webpack'], ' ');\n\telement.classList.add('hello');\n\n\tconst luffy = new Image();\n\tluffy.src = _luffy_jpg__WEBPACK_IMPORTED_MODULE_2__;\n\telement.appendChild(luffy);\n\n\tconsole.log((_data_csv__WEBPACK_IMPORTED_MODULE_3___default()));\n\tconsole.log((_data_xml__WEBPACK_IMPORTED_MODULE_4___default()));\n\tconsole.log(_data_toml__WEBPACK_IMPORTED_MODULE_5__);\n\tconsole.log(_data_yaml__WEBPACK_IMPORTED_MODULE_6__);\n\tconsole.log(_data_json5__WEBPACK_IMPORTED_MODULE_7__);\n\n\treturn element;\n}\n\ndocument.body.appendChild(component());\nconsole.log('hello from src/index.js');\n\n\n//# sourceURL=webpack://webpack-guide/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/luffy.jpg":
+/*!***********************!*\
+  !*** ./src/luffy.jpg ***!
+  \***********************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("module.exports = __webpack_require__.p + \"a200a2efd1140773c8b3.jpg\";\n\n//# sourceURL=webpack://webpack-guide/./src/luffy.jpg?");
+
+/***/ }),
+
+/***/ "./src/data.json5":
+/*!************************!*\
+  !*** ./src/data.json5 ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+eval("module.exports = /*#__PURE__*/JSON.parse('{\"title\":\"JSON5 Example\",\"owner\":{\"name\":\"Tom Preston-Werner\",\"organization\":\"GitHub\",\"bio\":\"GitHub Cofounder & CEO\\\\nLikes tater tots and beer.\",\"dob\":\"1979-05-27T07:32:00.000Z\"}}');\n\n//# sourceURL=webpack://webpack-guide/./src/data.json5?");
+
+/***/ }),
+
+/***/ "./src/data.toml":
+/*!***********************!*\
+  !*** ./src/data.toml ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+eval("module.exports = /*#__PURE__*/JSON.parse('{\"title\":\"TOML Example\",\"owner\":{\"name\":\"Tom Preston-Werner\",\"organization\":\"GitHub\",\"bio\":\"GitHub Cofounder & CEO\\\\nLikes tater tots and beer.\",\"dob\":\"1979-05-27T07:32:00.000Z\"}}');\n\n//# sourceURL=webpack://webpack-guide/./src/data.toml?");
+
+/***/ }),
+
+/***/ "./src/data.yaml":
+/*!***********************!*\
+  !*** ./src/data.yaml ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+eval("module.exports = /*#__PURE__*/JSON.parse('{\"title\":\"YAML Example\",\"owner\":{\"name\":\"Tom Preston-Werner\",\"organization\":\"GitHub\",\"bio\":\"GitHub Cofounder & CEO\\\\nLikes tater tots and beer.\",\"dob\":\"1979-05-27T07:32:00.000Z\"}}');\n\n//# sourceURL=webpack://webpack-guide/./src/data.yaml?");
 
 /***/ })
 
@@ -229,6 +293,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var loda
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
